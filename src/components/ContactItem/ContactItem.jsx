@@ -10,7 +10,7 @@ const ContactItem = ({ contact }) => {
   return (
     <>
       <ListItem id={contact.id}>
-        {contact.name}: {contact.phone}
+        {contact.name}: {contact.number}
         <ItemButton onClick={handleDelete}>Delete</ItemButton>
       </ListItem>
     </>

@@ -7,7 +7,7 @@ import { Form, SubmitButton, FormInput } from './ContactForm.styled';
 
 export function ContactForm() {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
   const handleInputChange = e => {
@@ -16,8 +16,8 @@ export function ContactForm() {
     switch (name) {
       case 'name':
         return setName(value);
-      case 'phone':
-        return setPhone(value);
+      case 'number':
+        return setNumber(value);
       default:
         break;
     }
@@ -28,13 +28,13 @@ export function ContactForm() {
     const form = e.target;
     const uniqueEl = contacts.find(el => el.name === form.name.value);
     if (!uniqueEl) {
-      dispatch(addContact({ name, phone }));
+      dispatch(addContact({ name, number }));
     }
     if (uniqueEl) {
       alert(`${form.name.value} is already in contacts`);
     }
     setName('');
-    setPhone('');
+    setNumber('');
     form.reset();
   };
 
@@ -60,8 +60,8 @@ export function ContactForm() {
         <br />
         <FormInput
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           onChange={handleInputChange}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
