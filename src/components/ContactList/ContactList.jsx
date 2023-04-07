@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts, getFilterInput, getIsLoading } from 'redux/selectors';
 import { fetchContacts } from 'redux/operations';
+import { List } from '@mui/material';
 
 const handleFilterChange = (contacts, filter) => {
   if (filter) {
@@ -18,19 +19,25 @@ const ContactList = () => {
   const isLoading = useSelector(getIsLoading);
   const contacts = useSelector(getContacts);
   const filterValue = useSelector(getFilterInput);
-  const filtredContacts = handleFilterChange(contacts, filterValue.filter);
+  const filteredContacts = handleFilterChange(contacts, filterValue.filter);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+  const isContactsNotEmpty =
+    filteredContacts.length > 0 ? (
+      filteredContacts.map(contact => {
+        return <ContactItem key={contact.id} contact={contact} />;
+      })
+    ) : (
+      <p>Here are no contacts </p>
+    );
+
   return (
-    <ul>
-      {!isLoading &&
-        filtredContacts.map(contact => {
-          return <ContactItem key={contact.id} contact={contact} />;
-        })}
-    </ul>
+    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+      {!isLoading && isContactsNotEmpty}
+    </List>
   );
 };
 

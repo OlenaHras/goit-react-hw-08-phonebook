@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import AuthNav from 'components/AuthNav/AuthNav';
-// import { Link } from 'react-router-dom';
+import { Box } from '@mui/material';
+
 import { getIsLoggedIn } from 'redux/auth/selectors';
 import { Header } from './AppBar.styled';
 import { Navigation } from 'components/Navigation/Navigation';
@@ -12,12 +13,10 @@ const AppBar = () => {
   return (
     <Header>
       <Navigation />
-      {/* <Link to="/">🏠 Home</Link> */}
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
-
-      {/* <Link to="/register">🌐Register</Link>
-      <Link to="/login">✔Login</Link> */}
-      {/* <Link to="/contacts">📞Contacts</Link> */}
+      {/* <Box sx={{ flexGrow: 1 }} /> */}
+      <Box sx={{ display: { md: 'flex' } }}>
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      </Box>
     </Header>
   );
 };

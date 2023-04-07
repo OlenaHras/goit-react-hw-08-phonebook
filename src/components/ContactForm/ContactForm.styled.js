@@ -5,7 +5,7 @@ export const Form = styled.form`
   flex-direction: column;
   width: 300px;
   padding: 24px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;
 
 export const FormInput = styled.input`

@@ -1,16 +1,15 @@
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
+import { TextField, Button, Box, Stack, Container } from '@mui/material';
 import { registerUser } from 'redux/auth/operations';
-// import { getIsLoggedIn } from 'redux/auth/selectors';
+// import { Form } from 'components/ContactForm/ContactForm.styled';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  // const isLogged = useSelector(getIsLoggedIn);
 
   const handleRegistration = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    // try {
+
     dispatch(
       registerUser({
         name: form.elements.name.value,
@@ -18,28 +17,57 @@ export const RegisterForm = () => {
         password: form.elements.password.value,
       })
     );
-    // console.log(form.elements.name.value);
 
-    toast.success('Registration is success');
     form.reset();
-    // } catch (error) {
-    //   toast.error('Registration is not success');
-    // }
-    // if (isLogged) {
-    // }
   };
   return (
     <>
-      <h2>LOGIN TO YOUR ACCOUNT </h2>
-      <form onSubmit={handleRegistration}>
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" placeholder="Alex Smith" />
-        <label htmlFor="email">Email</label>
-        <input type="text" name="email" placeholder="example@mail.com" />
-        <label htmlFor="password">Password</label>
-        <input type="text" name="password" placeholder="" />
-        <button type="submit">Sign up</button>
-      </form>
+      <h2>CREATE YOUR ACCOUNT </h2>
+      <Stack
+        onSubmit={handleRegistration}
+        component="form"
+        sx={{
+          width: '30ch',
+        }}
+        spacing={2}
+      >
+        {/* <label htmlFor="name">Name</label> */}
+        <TextField
+          type="text"
+          name="name"
+          placeholder="Alex Smith"
+          required
+          label="Name"
+          id="outlined-disabled"
+          size="small"
+          margin="normal"
+        />
+        {/* <label htmlFor="email">Email</label> */}
+        <TextField
+          type="text"
+          name="email"
+          placeholder="example@mail.com"
+          required
+          label="Email"
+          id="outlined-disabled"
+          size="small"
+          margin="normal"
+        />
+        {/* <label htmlFor="password">Password</label> */}
+        <TextField
+          type="text"
+          name="password"
+          placeholder=""
+          required
+          label="Password"
+          id="outlined-disabled"
+          size="small"
+          margin="normal"
+        />
+        <Button type="submit" variant="outlined">
+          Sign up
+        </Button>
+      </Stack>
     </>
   );
 };

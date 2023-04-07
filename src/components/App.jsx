@@ -1,12 +1,9 @@
 import PropTypes from 'prop-types';
-// import { useSelector } from 'react-redux';
-// import { getError, getIsLoading } from 'redux/selectors';
-// import { ContactForm } from './ContactForm/ContactForm';
-// import ContactList from './ContactList/ContactList';
-// import Filter from './Filter/Filter';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { getCurrentUser } from 'redux/auth/operations';
 import { getIsRefreshingUser } from 'redux/auth/selectors';
 import Layout from './Layout/Layout';
@@ -18,22 +15,47 @@ import Contacts from 'pages/Contacts';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 
+// import { ThemeProvider, createTheme } from '@mui/material';
+
+// const theme = createTheme({
+//   components: {
+//     MuiButton: {
+//       styleOverrides: {
+//         root: {
+//           // variant: 'outlined',
+//           fontSize: '1rem',
+//           border: '1px solid',
+//           size: 'small',
+//         },
+//       },
+//     },
+//   },
+// });
+
 export default function App() {
   const dispatch = useDispatch();
   const isRefreshingUser = useSelector(getIsRefreshingUser);
 
   useEffect(() => {
     dispatch(getCurrentUser());
-    // console.log('getting...');
   }, [dispatch]);
 
   return (
     !isRefreshingUser && (
+      // <ThemeProvider theme={theme}>
       <Layout>
         <AppBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                component={<RegisterPage />}
+                redirectTo="/contacts"
+              />
+            }
+          />
           <Route
             path="/login"
             element={
@@ -43,9 +65,6 @@ export default function App() {
               />
             }
           />
-          {/* <PrivateRoute path="/contacts">
-          <Contacts />
-        </PrivateRoute> */}
           <Route
             path="/contacts"
             element={
@@ -53,14 +72,9 @@ export default function App() {
             }
           />
         </Routes>
-        {/* <h1>Phonebook</h1>
-      <ContactForm /> */}
-        {/* <h2>Contacts</h2>
-      <Filter />
-      {isLoading && !error && <b>Loading contacts...</b>}
-      {error && <b>{error}</b>}
-      <ContactList /> */}
+        <ToastContainer autoClose={1000} />
       </Layout>
+      // </ThemeProvider>
     )
   );
 }
