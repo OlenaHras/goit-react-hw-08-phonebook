@@ -15,23 +15,6 @@ import Contacts from 'pages/Contacts';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 
-// import { ThemeProvider, createTheme } from '@mui/material';
-
-// const theme = createTheme({
-//   components: {
-//     MuiButton: {
-//       styleOverrides: {
-//         root: {
-//           // variant: 'outlined',
-//           fontSize: '1rem',
-//           border: '1px solid',
-//           size: 'small',
-//         },
-//       },
-//     },
-//   },
-// });
-
 export default function App() {
   const dispatch = useDispatch();
   const isRefreshingUser = useSelector(getIsRefreshingUser);
@@ -42,7 +25,6 @@ export default function App() {
 
   return (
     !isRefreshingUser && (
-      // <ThemeProvider theme={theme}>
       <Layout>
         <AppBar />
         <Routes>
@@ -74,7 +56,6 @@ export default function App() {
         </Routes>
         <ToastContainer autoClose={1000} />
       </Layout>
-      // </ThemeProvider>
     )
   );
 }

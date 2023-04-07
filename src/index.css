@@ -25,9 +25,6 @@ a {
 a:link {
   color: blue;
 }
-a.active {
-  color: red;
-}
 
 a:visited {
   color: blue;

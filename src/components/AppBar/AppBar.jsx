@@ -13,7 +13,6 @@ const AppBar = () => {
   return (
     <Header>
       <Navigation />
-      {/* <Box sx={{ flexGrow: 1 }} /> */}
       <Box sx={{ display: { md: 'flex' } }}>
         {isLoggedIn ? <UserMenu /> : <AuthNav />}
       </Box>

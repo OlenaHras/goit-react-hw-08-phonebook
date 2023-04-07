@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { TextField, Button, Stack } from '@mui/material';
 import { logInUser } from 'redux/auth/operations';
-// import { Form } from 'components/ContactForm/ContactForm.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -27,7 +26,6 @@ export const LoginForm = () => {
         }}
         spacing={2}
       >
-        {/* <label htmlFor="email">Email</label> */}
         <TextField
           type="text"
           name="email"
@@ -38,7 +36,6 @@ export const LoginForm = () => {
           size="small"
           margin="normal"
         />
-        {/* <label htmlFor="password">Password</label> */}
         <TextField
           type="text"
           name="password"

@@ -28,15 +28,6 @@ const Contacts = () => {
         </Grid>
       </Grid>
     </>
-    // <Container maxWidth="sm">
-    // <h1>Phonebook</h1>
-    //   <ContactForm />
-    //   <h2>Contacts</h2>
-    //   <Filter />
-    //   {isLoading && !error && <b>Loading contacts...</b>}
-    //   {error && <b>{error}</b>}
-    //   <ContactList />
-    // {/* </Container> */}
   );
 };
 

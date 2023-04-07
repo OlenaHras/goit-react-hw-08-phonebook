@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { TextField, Button, Stack } from '@mui/material';
 import { registerUser } from 'redux/auth/operations';
-// import { Form } from 'components/ContactForm/ContactForm.styled';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -31,7 +30,6 @@ export const RegisterForm = () => {
         }}
         spacing={2}
       >
-        {/* <label htmlFor="name">Name</label> */}
         <TextField
           type="text"
           name="name"
@@ -42,7 +40,6 @@ export const RegisterForm = () => {
           size="small"
           margin="normal"
         />
-        {/* <label htmlFor="email">Email</label> */}
         <TextField
           type="text"
           name="email"
@@ -53,7 +50,6 @@ export const RegisterForm = () => {
           size="small"
           margin="normal"
         />
-        {/* <label htmlFor="password">Password</label> */}
         <TextField
           type="text"
           name="password"
