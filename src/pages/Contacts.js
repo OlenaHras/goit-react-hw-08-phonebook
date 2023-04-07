@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { Container, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { getError, getIsLoading } from 'redux/selectors';
 
 import { ContactForm } from 'components/ContactForm/ContactForm';

@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Stack, ListItemText, Avatar } from '@mui/material';
 import ContactsIcon from '@mui/icons-material/Contacts';
-import HomeIcon from '@mui/icons-material/Home';
+// import HomeIcon from '@mui/icons-material/Home';
 import { getIsLoggedIn } from 'redux/auth/selectors';
 import logo from './Phone book.png';
 const style = ({ isActive }) => ({

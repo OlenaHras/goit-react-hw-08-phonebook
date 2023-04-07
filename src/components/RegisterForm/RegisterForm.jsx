@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { TextField, Button, Box, Stack, Container } from '@mui/material';
+import { TextField, Button, Stack } from '@mui/material';
 import { registerUser } from 'redux/auth/operations';
 // import { Form } from 'components/ContactForm/ContactForm.styled';
 

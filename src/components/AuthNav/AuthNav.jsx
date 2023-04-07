@@ -16,19 +16,11 @@ const AuthNav = () => {
       alignItems="center"
       spacing={2}
     >
-      <NavLink
-        to="/register"
-        style={style}
-        // className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-      >
+      <NavLink to="/register" style={style}>
         <PersonAddIcon color="primary" />
         Register
       </NavLink>
-      <NavLink
-        to="/login"
-        style={style}
-        // className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-      >
+      <NavLink to="/login" style={style}>
         <LoginIcon color="primary" />
         Login
       </NavLink>
